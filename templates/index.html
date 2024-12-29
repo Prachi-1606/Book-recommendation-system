@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+</head>
+<style>
+    .text-white{
+    color:white
+</style>
+<body style="background-color:black">
+
+  <nav class="navbar" style="background-color:#53a8b6">
+        <a class="navbar-brand"
+  style="font-family:Garmond,Serif ;font-size:35px">
+My Book Recommender</a>
+ <ul>
+          <li>  <a href="/"><button type="button"style="font-family:Lucida Handwriting,Monospace ;font-size:18px ;background-color:#bbe4e9">Home</button></a>
+            <li><a href="/recommend"><button type="button" style="font-family:Lucida Handwriting,monospace ;font-size:18px; background-color: #bbe4e9">Recommend</button></a>
+ </ul>
+
+    </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" >
+            <h1 class="text-white"  style="font-family: Garmond,Serif ;font-size:50px">Top 50 Books</h1>
+        </div>
+
+
+        {% for i in range(book_name|length)%}
+        <div class="col-md-3" style="margin-top:50px">
+        <div class="card" style="padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 0px 20px 0 rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.2);
+    transition: 0.3s;width:200px height: 200px">
+            <div class="card-body">
+                <img class="card-img-top" src="{{image[i]}}">
+                <h2 class="text-white" style="font-family: Garmond,Serif ;font-size:20px">{{book_name[i]}}</h2>
+                <h3 class="text-white" style="font-family: Garmond,Serif ;font-size:20px">{{author[i]}}</h3>
+                <h4 class="text-white" style="font-family: Garmond,Serif ;font-size:15px">Votes - {{votes[i]}}</h4>
+                  <h4 class="text-white" style="font-family: Garmond,Serif ;font-size:15px">Rating- {{rating[i]}}</h4>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+</div>
+
+</body>
+</html>
